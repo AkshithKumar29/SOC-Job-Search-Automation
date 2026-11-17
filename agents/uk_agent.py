@@ -62,5 +62,11 @@ if __name__ == '__main__':
     try:
         main()
     except Exception as exc:
+        if hasattr(exc, 'error') and isinstance(exc.error, dict):
+            print('Google API error code:', exc.error.get('code'), 'status:', exc.error.get('status'))
+            message = exc.error.get('message', '').lower()
+            for hint in ('grid limits', 'quota', 'permission', 'protected', 'frozen', 'already exists', 'cell limit', 'invalid range', 'parse range'):
+                if hint in message:
+                    print('Google API diagnostic category:', hint)
         print(f'UK agent failed ({type(exc).__name__}); private details withheld.', file=sys.stderr)
         sys.exit(1)

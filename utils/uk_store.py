@@ -19,21 +19,25 @@ class Store:
     def __init__(self, sheet_id):
         creds, _ = google.auth.default(scopes=['https://www.googleapis.com/auth/spreadsheets'])
         self.book = gspread.authorize(creds).open_by_key(sheet_id)
+        print('Sheets: authenticated and opened workbook')
         self.jobs = self.book.worksheet('UK_JOBS')
         rows = self.jobs.get_all_values()
         if rows and rows[0] != HEADERS:
             raise ValueError('UK_JOBS header differs from required eight columns; refusing to overwrite existing data')
         if not rows:
+            print('Sheets: initializing UK headers')
             self.jobs.update(range_name='A1:H1', values=[HEADERS], value_input_option='RAW')
         self.urls = {canonical_url(r[6]) for r in rows[1:] if len(r) > 6}
         self.url_rows = {canonical_url(r[6]): i for i, r in enumerate(rows[1:], start=2) if len(r) > 6}
         if any(len(r) > 8 for r in rows):
             raise ValueError('UK_JOBS contains data beyond eight columns')
         if self.jobs.col_count != 8:
+            print('Sheets: setting UK column count to eight')
             self.jobs.resize(cols=8)
         try:
             self.tracking = self.book.worksheet('UK_INTERNAL_TRACKING')
         except gspread.WorksheetNotFound:
+            print('Sheets: creating private tracking worksheet')
             self.tracking = self.book.add_worksheet(title='UK_INTERNAL_TRACKING', rows=1000, cols=3)
             self.tracking.append_row(['Record ID', 'Last Verified UTC', 'Private Record JSON'], value_input_option='RAW')
         self.previous = {}
@@ -42,6 +46,7 @@ class Store:
                 self.previous[row[0]] = (number, json.loads(row[2]))
 
     def save(self, job):
+        print('Sheets: persisting private tracking record')
         identifier = key(job)
         prior = self.previous.get(identifier)
         if prior:
@@ -75,6 +80,7 @@ class Store:
         return inserted
 
     def log(self, summary):
+        print('Sheets: appending execution summary')
         self.book.worksheet('EXECUTION_LOGS').append_row(
             ['UK_AGENT', datetime.now(timezone.utc).isoformat(), summary['status'], json.dumps(summary)],
             value_input_option='RAW')
