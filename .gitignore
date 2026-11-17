@@ -66,3 +66,8 @@ state/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Public source inventory contains no candidate information
+!config/uk_employers.csv
+!config/uk_recruitment_agencies.csv
+!config/uk_job_platforms.csv

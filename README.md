@@ -2,8 +2,7 @@
 
 Automated SOC Analyst job search system covering the UK, India, Germany, and the Netherlands.
 
-**Current stage: GitHub infrastructure, placeholders, and a separate Google Sheets
-connection test.** No job searching, applications, or networking is implemented.
+**Current stage: UK search agent with limited verified source coverage; India and EU remain placeholders.** No applications or networking messages are sent.
 Each placeholder prints its name, UTC and local execution timestamps, and a
 successful completion message. This verifies execution infrastructure only.
 
@@ -170,3 +169,44 @@ future work.
 ## License
 
 MIT; see LICENSE.
+
+
+## UK agent: deployed scope and limitations
+
+The UK workflow runs the real agent at the existing 08:00, 14:00 and 20:00
+Europe/London schedule. It uses the existing OIDC identity and private workbook.
+`config/uk_sources.json` is the runtime source registry: 42 employers, 5 agencies,
+and 14 platforms. Configuration does not establish successful search coverage.
+The current adapters cover verified Greenhouse integrations for Huntress,
+Netcraft and Darktrace. A failed or obsolete endpoint is recorded as temporarily
+unavailable. Other sources are explicitly recorded as not searched.
+
+The engine reads live public job-board APIs, verifies vacancy-specific ATS links
+from returned records, uses first publication dates (never updated dates), and
+keeps uncertain dates or eligibility for review. Weekends use Monday 00:00
+London time through execution; weekdays use the previous 24 elapsed hours.
+The title list is in `config/uk_titles.json`; broad security terminology avoids
+30 repeated requests to the same API. Beginner detection is conservative and
+rule-based. Ambiguous experience, nationality and right-to-work requirements
+require human review. This is not a legal eligibility determination.
+
+`UK_JOBS` has exactly eight columns. Existing headers/data are validated before
+writing, new rows use Not Applied, and column H is never rewritten. Strong
+requisition IDs and canonical URLs prevent repeated writes. Additional records
+are stored in `UK_INTERNAL_TRACKING` within the same private workbook, outside
+the eight-column country tabs. It retains first-seen timestamps, rejection and
+review reasons, descriptions and source evidence between runs. It is not
+published to GitHub or uploaded as an Actions artifact. `EXECUTION_LOGS` records
+per-source coverage and totals for each execution. No candidate profile or
+private runtime records are committed.
+
+Run `python agents/uk_agent.py --check` for offline configuration validation;
+`--dry-run` queries live sources without Sheets writes. Normal execution needs
+`GOOGLE_SHEET_ID` and Application Default Credentials from the OIDC action.
+
+Remaining coverage work: verify and integrate the other employer boards,
+agencies and platforms, add discovery of employers beyond the initial list,
+and implement cross-platform employer matching. No platform is represented as
+searched merely because it is in the inventory. No vacancies have been invented
+to demonstrate the integration. A successful workflow with partial coverage is
+not evidence that all 61 sources were searched.

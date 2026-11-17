@@ -24,7 +24,7 @@ class InfrastructureTests(unittest.TestCase):
                 workflow = yaml.load((ROOT / f'.github/workflows/{key}-agent.yml').read_text(), Loader=yaml.BaseLoader)
                 self.assertEqual(set(workflow['on']), {'schedule', 'workflow_dispatch'})
                 self.assertEqual(workflow['on']['schedule'], [{'cron': '0 8,14,20 * * *', 'timezone': zone}])
-                self.assertEqual(workflow['permissions'], {'contents': 'read'})
+                self.assertEqual(workflow['permissions'], {'contents': 'read', **({'id-token': 'write'} if key == 'uk' else {})})
                 group = workflow['concurrency']['group']
                 self.assertNotIn(group, groups)
                 groups.add(group)
@@ -39,7 +39,7 @@ class InfrastructureTests(unittest.TestCase):
                 for step in steps:
                     self.assertNotIn('continue-on-error', step)
                     if 'uses' in step:
-                        self.assertRegex(step['uses'], r'^actions/(checkout|setup-python)@[a-f0-9]{40}$')
+                        self.assertRegex(step['uses'], r'^(actions/(checkout|setup-python)|google-github-actions/auth)@[a-f0-9]{40}$')
                 self.assertEqual(steps[0]['with']['persist-credentials'], 'false')
                 commands = '\n'.join(s.get('run', '') for s in steps)
                 self.assertIn(f'python agents/{key}_agent.py', commands)
@@ -60,7 +60,7 @@ class InfrastructureTests(unittest.TestCase):
             ast.parse(path.read_text(encoding='utf-8'), filename=str(path))
         for key, zone in EXPECTED.items():
             with self.subTest(agent=key):
-                result = subprocess.run([sys.executable, str(ROOT / f'agents/{key}_agent.py')], capture_output=True, text=True, timeout=10)
+                result = subprocess.run([sys.executable, str(ROOT / f'agents/{key}_agent.py')] + (['--check'] if key == 'uk' else []), capture_output=True, text=True, timeout=10)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertIn(f'{key.upper()}_SOC_AGENT', result.stdout)
                 self.assertIn(zone, result.stdout)

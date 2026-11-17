@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 concurrency:
   group: uk-soc-agent
@@ -15,7 +16,7 @@ concurrency:
 
 jobs:
   run-agent:
-    name: Run UK placeholder
+    name: Run UK agent
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
@@ -26,6 +27,11 @@ jobs:
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           persist-credentials: false
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          workload_identity_provider: ${{ vars.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
       - name: Install Python
         uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
         with:
@@ -36,15 +42,17 @@ jobs:
         run: |
           python -m compileall -q agents utils tests
           python -m unittest discover -s tests -v
-      - name: Execute UK placeholder
+      - name: Execute UK agent
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
         run: python agents/uk_agent.py
       - name: Report execution status
         if: always()
         env:
           RUN_STATUS: ${{ job.status }}
         run: |
-          echo "UK SOC placeholder result: $RUN_STATUS"
-          echo "### UK SOC placeholder" >> "$GITHUB_STEP_SUMMARY"
+          echo "UK SOC agent result: $RUN_STATUS"
+          echo "### UK SOC agent" >> "$GITHUB_STEP_SUMMARY"
           echo "Result: $RUN_STATUS" >> "$GITHUB_STEP_SUMMARY"
           echo "Schedule: 08:00, 14:00, 20:00 (Europe/London), every day." >> "$GITHUB_STEP_SUMMARY"
           echo "Trigger: $GITHUB_EVENT_NAME" >> "$GITHUB_STEP_SUMMARY"

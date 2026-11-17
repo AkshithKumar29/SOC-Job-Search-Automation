@@ -1,0 +1,493 @@
+[
+  {
+    "name": "CyPro",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "TSG",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Proact",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Liberty Global",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Lloyds Banking Group",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "NCC Group",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "BAE Systems",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "CGI",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Leonardo",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Frazer-Nash Consultancy",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Barclays",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "PA Consulting",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Fidelity International",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "National Grid",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Financial Conduct Authority (FCA)",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "A&O Shearman",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Netcraft",
+    "kind": "employer",
+    "url": "https://www.netcraft.com/company/careers",
+    "adapter": "greenhouse",
+    "verification": "official careers page links or embeds ATS",
+    "limitation": "",
+    "board": "netcraft"
+  },
+  {
+    "name": "IBM",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Bridewell",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Adarma",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Integrity360",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Sapphire",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Redscan",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Claranet",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Computacenter",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "BT Group",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Capgemini",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Accenture",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Deloitte",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "KPMG",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "PwC",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "EY",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Darktrace",
+    "kind": "employer",
+    "url": "https://www.darktrace.com/careers",
+    "adapter": "greenhouse",
+    "verification": "official careers page links or embeds ATS",
+    "limitation": "",
+    "board": "darktracelimited"
+  },
+  {
+    "name": "Sophos",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Huntress",
+    "kind": "employer",
+    "url": "https://www.huntress.com/company/careers",
+    "adapter": "greenhouse",
+    "verification": "official careers links to ATS",
+    "limitation": "",
+    "board": "huntress"
+  },
+  {
+    "name": "SenseOn",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Quorum Cyber",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Immersive (formerly Immersive Labs)",
+    "kind": "employer",
+    "url": "https://www.immersivelabs.com/company/careers",
+    "adapter": null,
+    "verification": "official careers page verified",
+    "limitation": "Ashby integration not implemented"
+  },
+  {
+    "name": "Netskope",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "CrowdStrike",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "SentinelOne",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Rapid7",
+    "kind": "employer",
+    "url": "",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Hamilton Barnes",
+    "kind": "agency",
+    "url": "https://www.hamilton-barnes.com/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Franklin Fitch",
+    "kind": "agency",
+    "url": "https://www.franklinfitch.com/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "ZFR Group",
+    "kind": "agency",
+    "url": "https://www.zfrgroup.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "CND",
+    "kind": "agency",
+    "url": "https://www.cndltd.com/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "ARM",
+    "kind": "agency",
+    "url": "https://www.arm.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "LinkedIn Jobs",
+    "kind": "platform",
+    "url": "https://www.linkedin.com/jobs/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Indeed UK",
+    "kind": "platform",
+    "url": "https://uk.indeed.com/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Reed",
+    "kind": "platform",
+    "url": "https://www.reed.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Totaljobs",
+    "kind": "platform",
+    "url": "https://www.totaljobs.com/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "CV-Library",
+    "kind": "platform",
+    "url": "https://www.cv-library.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Gradcracker",
+    "kind": "platform",
+    "url": "https://www.gradcracker.com/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Bright Network",
+    "kind": "platform",
+    "url": "https://www.brightnetwork.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Prospects",
+    "kind": "platform",
+    "url": "https://www.prospects.ac.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "targetjobs",
+    "kind": "platform",
+    "url": "https://targetjobs.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Cyberend",
+    "kind": "platform",
+    "url": "https://www.cyberend.io/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "NewGrads",
+    "kind": "platform",
+    "url": "https://newgrads.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Civil Service Jobs",
+    "kind": "platform",
+    "url": "https://www.civilservicejobs.service.gov.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "NHS Jobs",
+    "kind": "platform",
+    "url": "https://www.jobs.nhs.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  },
+  {
+    "name": "Glassdoor",
+    "kind": "platform",
+    "url": "https://www.glassdoor.co.uk/",
+    "adapter": null,
+    "verification": "unverified",
+    "limitation": "No verified permitted integration configured"
+  }
+]

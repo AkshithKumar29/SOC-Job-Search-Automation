@@ -1,0 +1,43 @@
+name,official_or_provided_url,configured,verification,adapter,limitation
+CyPro,,yes,unverified,,No verified permitted integration configured
+TSG,,yes,unverified,,No verified permitted integration configured
+Proact,,yes,unverified,,No verified permitted integration configured
+Liberty Global,,yes,unverified,,No verified permitted integration configured
+Lloyds Banking Group,,yes,unverified,,No verified permitted integration configured
+NCC Group,,yes,unverified,,No verified permitted integration configured
+BAE Systems,,yes,unverified,,No verified permitted integration configured
+CGI,,yes,unverified,,No verified permitted integration configured
+Leonardo,,yes,unverified,,No verified permitted integration configured
+Frazer-Nash Consultancy,,yes,unverified,,No verified permitted integration configured
+Barclays,,yes,unverified,,No verified permitted integration configured
+PA Consulting,,yes,unverified,,No verified permitted integration configured
+Fidelity International,,yes,unverified,,No verified permitted integration configured
+National Grid,,yes,unverified,,No verified permitted integration configured
+Financial Conduct Authority (FCA),,yes,unverified,,No verified permitted integration configured
+A&O Shearman,,yes,unverified,,No verified permitted integration configured
+Netcraft,https://www.netcraft.com/company/careers,yes,official careers page links or embeds ATS,greenhouse,
+IBM,,yes,unverified,,No verified permitted integration configured
+Bridewell,,yes,unverified,,No verified permitted integration configured
+Adarma,,yes,unverified,,No verified permitted integration configured
+Integrity360,,yes,unverified,,No verified permitted integration configured
+Sapphire,,yes,unverified,,No verified permitted integration configured
+Redscan,,yes,unverified,,No verified permitted integration configured
+Claranet,,yes,unverified,,No verified permitted integration configured
+Computacenter,,yes,unverified,,No verified permitted integration configured
+BT Group,,yes,unverified,,No verified permitted integration configured
+Capgemini,,yes,unverified,,No verified permitted integration configured
+Accenture,,yes,unverified,,No verified permitted integration configured
+Deloitte,,yes,unverified,,No verified permitted integration configured
+KPMG,,yes,unverified,,No verified permitted integration configured
+PwC,,yes,unverified,,No verified permitted integration configured
+EY,,yes,unverified,,No verified permitted integration configured
+Darktrace,https://www.darktrace.com/careers,yes,official careers page links or embeds ATS,greenhouse,
+Sophos,,yes,unverified,,No verified permitted integration configured
+Huntress,https://www.huntress.com/company/careers,yes,official careers links to ATS,greenhouse,
+SenseOn,,yes,unverified,,No verified permitted integration configured
+Quorum Cyber,,yes,unverified,,No verified permitted integration configured
+Immersive (formerly Immersive Labs),https://www.immersivelabs.com/company/careers,yes,official careers page verified,,Ashby integration not implemented
+Netskope,,yes,unverified,,No verified permitted integration configured
+CrowdStrike,,yes,unverified,,No verified permitted integration configured
+SentinelOne,,yes,unverified,,No verified permitted integration configured
+Rapid7,,yes,unverified,,No verified permitted integration configured

@@ -1,0 +1,15 @@
+name,official_or_provided_url,configured,verification,adapter,limitation
+LinkedIn Jobs,https://www.linkedin.com/jobs/,yes,unverified,,No verified permitted integration configured
+Indeed UK,https://uk.indeed.com/,yes,unverified,,No verified permitted integration configured
+Reed,https://www.reed.co.uk/,yes,unverified,,No verified permitted integration configured
+Totaljobs,https://www.totaljobs.com/,yes,unverified,,No verified permitted integration configured
+CV-Library,https://www.cv-library.co.uk/,yes,unverified,,No verified permitted integration configured
+Gradcracker,https://www.gradcracker.com/,yes,unverified,,No verified permitted integration configured
+Bright Network,https://www.brightnetwork.co.uk/,yes,unverified,,No verified permitted integration configured
+Prospects,https://www.prospects.ac.uk/,yes,unverified,,No verified permitted integration configured
+targetjobs,https://targetjobs.co.uk/,yes,unverified,,No verified permitted integration configured
+Cyberend,https://www.cyberend.io/,yes,unverified,,No verified permitted integration configured
+NewGrads,https://newgrads.co.uk/,yes,unverified,,No verified permitted integration configured
+Civil Service Jobs,https://www.civilservicejobs.service.gov.uk/,yes,unverified,,No verified permitted integration configured
+NHS Jobs,https://www.jobs.nhs.uk/,yes,unverified,,No verified permitted integration configured
+Glassdoor,https://www.glassdoor.co.uk/,yes,unverified,,No verified permitted integration configured
