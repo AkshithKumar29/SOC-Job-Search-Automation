@@ -28,6 +28,7 @@ coverage.xml
 credentials/
 secrets/
 *credentials*.json
+gha-creds-*.json
 *credential*.json
 *service-account*.json
 *service_account*.json

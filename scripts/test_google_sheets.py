@@ -7,6 +7,7 @@ import sys
 from uuid import uuid4
 
 import gspread
+import google.auth
 from google.oauth2.service_account import Credentials
 
 
@@ -17,19 +18,22 @@ SCOPES = ("https://www.googleapis.com/auth/spreadsheets",)
 def run() -> None:
     raw_credentials = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
     sheet_id = os.environ.get("GOOGLE_SHEET_ID", "")
-    if not raw_credentials or not sheet_id:
-        raise ValueError("Missing required Actions secrets: GOOGLE_SERVICE_ACCOUNT_JSON and/or GOOGLE_SHEET_ID")
+    if not sheet_id:
+        raise ValueError("Missing required Actions secret: GOOGLE_SHEET_ID")
 
-    try:
-        info = json.loads(raw_credentials)
-        if info.get("type") != "service_account":
-            raise ValueError("Credential is not a service account key")
-        credentials = Credentials.from_service_account_info(info, scopes=SCOPES)
-    except (json.JSONDecodeError, KeyError, TypeError, ValueError) as exc:
-        raise ValueError("Invalid GOOGLE_SERVICE_ACCOUNT_JSON") from None
-    finally:
-        # The JSON key never goes to disk or stdout.
-        del raw_credentials
+    if raw_credentials:
+        try:
+            info = json.loads(raw_credentials)
+            if info.get("type") != "service_account":
+                raise ValueError("Credential is not a service account key")
+            credentials = Credentials.from_service_account_info(info, scopes=SCOPES)
+        except (json.JSONDecodeError, KeyError, TypeError, ValueError):
+            raise ValueError("Invalid GOOGLE_SERVICE_ACCOUNT_JSON") from None
+        finally:
+            del raw_credentials
+    else:
+        # The GitHub OIDC auth action supplies short-lived ADC credentials.
+        credentials, _ = google.auth.default(scopes=SCOPES)
 
     client = gspread.authorize(credentials)
     workbook = client.open_by_key(sheet_id)
@@ -48,7 +52,7 @@ def run() -> None:
     found = log_sheet.find(marker, in_column=1)
     if found is None or log_sheet.row_values(found.row)[: len(row)] != row:
         raise RuntimeError("Appended test entry could not be read back")
-    print("SUCCESS: service account read/write access and all four worksheets verified; test entry read back.")
+    print("SUCCESS: Google Sheets read/write access and all four worksheets verified; test entry read back.")
 
 
 if __name__ == "__main__":
