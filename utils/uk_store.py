@@ -22,6 +22,9 @@ class Store:
         print('Sheets: authenticated and opened workbook')
         self.jobs = self.book.worksheet('UK_JOBS')
         rows = self.jobs.get_all_values()
+        # gspread represents an empty values response as [[]].
+        if not any(any(cell for cell in row) for row in rows):
+            rows = []
         if rows and rows[0] != HEADERS:
             raise ValueError('UK_JOBS header differs from required eight columns; refusing to overwrite existing data')
         if not rows:
@@ -58,6 +61,7 @@ class Store:
             # Only the verified application URL is updated; column H is never touched.
             self.jobs.update(range_name=f'G{self.url_rows[old_url]}', values=[[job['url']]], value_input_option='RAW')
             self.urls.add(url)
+            self.url_rows[url] = self.url_rows[old_url]
         # Existing sheet URLs are authoritative after an interrupted earlier run.
         if job['decision'] == 'include' and url not in self.urls:
             result = self.jobs.append_row(sheet_row(job), value_input_option='RAW')
