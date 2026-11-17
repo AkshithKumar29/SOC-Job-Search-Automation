@@ -1,0 +1,17 @@
+# Descriptive infrastructure configuration. Workflows own their schedules.
+# Keep this file and workflow schedules in sync; tests check consistency.
+mode: placeholder
+automatic_applications: false
+agents:
+  UK_SOC_AGENT:
+    timezone: Europe/London
+    countries: [United Kingdom]
+    times: ['08:00', '14:00', '20:00']
+  INDIA_SOC_AGENT:
+    timezone: Asia/Kolkata
+    countries: [India]
+    times: ['08:00', '14:00', '20:00']
+  EU_SOC_AGENT:
+    timezone: Europe/Berlin
+    countries: [Germany, Netherlands]
+    times: ['08:00', '14:00', '20:00']

@@ -1,0 +1,50 @@
+name: UK SOC Job Search Agent
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8,14,20 * * *'
+      timezone: 'Europe/London'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uk-soc-agent
+  cancel-in-progress: false
+
+jobs:
+  run-agent:
+    name: Run UK placeholder
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONUNBUFFERED: '1'
+      TZ: 'Europe/London'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        with:
+          persist-credentials: false
+      - name: Install Python
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: '3.13'
+      - name: Install project dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Validate infrastructure
+        run: |
+          python -m compileall -q agents utils tests
+          python -m unittest discover -s tests -v
+      - name: Execute UK placeholder
+        run: python agents/uk_agent.py
+      - name: Report execution status
+        if: always()
+        env:
+          RUN_STATUS: ${{ job.status }}
+        run: |
+          echo "UK SOC placeholder result: $RUN_STATUS"
+          echo "### UK SOC placeholder" >> "$GITHUB_STEP_SUMMARY"
+          echo "Result: $RUN_STATUS" >> "$GITHUB_STEP_SUMMARY"
+          echo "Schedule: 08:00, 14:00, 20:00 (Europe/London), every day." >> "$GITHUB_STEP_SUMMARY"
+          echo "Trigger: $GITHUB_EVENT_NAME" >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,3 @@
+# Infrastructure validation and portable IANA time-zone data.
+PyYAML==6.0.3
+tzdata==2025.2
