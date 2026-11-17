@@ -132,13 +132,32 @@ Keep the repository public to retain these free execution conditions.
 
 ## Future Google Sheets integration
 
-In a later phase, configure least-privilege access to a designated private
-workbook with `UK_JOBS`, `INDIA_JOBS`, `EU_JOBS`, and `EXECUTION_LOGS` tabs. Store
-authentication material in GitHub Actions Secrets, never in this repository.
-Plan durable private state, duplicate-safe writes, separate run logs, and
-preservation of manual application statuses and notes. Hosted runner filesystems
-are temporary and are not durable job-search memory. No Google credentials,
-workbook, or integration are created in this phase.
+The separate **Test Google Sheets Connection** workflow now tests access to the
+existing private workbook. It is manually triggered and does not change the
+three agent schedules. The test creates `UK_JOBS`, `INDIA_JOBS`, `EU_JOBS`, and
+`EXECUTION_LOGS` if missing, without deleting or changing existing worksheets.
+It appends one uniquely identified test row to `EXECUTION_LOGS` and reads it
+back. The three job-search placeholders do not yet write jobs.
+
+Before running this test:
+
+1. In Google Cloud, enable the Google Sheets API, create a service account,
+   and create a JSON key for that account. Keep the key private.
+2. Share the **existing** workbook with the service account's `client_email`
+   as **Editor**. Do not change the workbook's general access to public.
+3. In this repository, open **Settings > Secrets and variables > Actions**.
+   Create `GOOGLE_SERVICE_ACCOUNT_JSON` containing the entire JSON key and
+   `GOOGLE_SHEET_ID` containing the existing spreadsheet ID.
+4. Open **Actions > Test Google Sheets Connection > Run workflow** on `main`.
+   Confirm the run succeeds and locate its `SHEETS_TEST_...` row in
+   `EXECUTION_LOGS`.
+
+The test uses only the Sheets API scope and loads credentials from the
+environment in memory. A missing secret, disabled API, incorrect spreadsheet
+ID, or missing service-account sharing causes the workflow to fail with a
+sanitised message. Never paste the JSON key into an issue, log, source file,
+or chat. Hosted runner filesystems are temporary and are not durable job-search
+memory; durable private state and duplicate-safe writes remain future work.
 
 ## License
 

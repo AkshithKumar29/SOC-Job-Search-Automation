@@ -32,6 +32,8 @@ secrets/
 *service-account*.json
 *service_account*.json
 *client_secret*.json
+*service_account*.json
+google-service-account.json
 token.json
 tokens.json
 *.pem
