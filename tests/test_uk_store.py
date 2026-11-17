@@ -17,6 +17,8 @@ class Tab:
             self.rows[number][6] = values[0][0]
         else:
             self.rows[number] = values[0]
+    def row_values(self, number):
+        return self.rows[number - 1]
 
 
 class StoreTests(unittest.TestCase):

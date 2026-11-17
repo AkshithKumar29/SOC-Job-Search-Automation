@@ -56,6 +56,8 @@ def fetch_board(board, company, now=None):
 
 
 def assess(title, text):
+    if re.search(r'\b(?:two|three|four|five|six|seven|eight|nine|ten)\s+years?\b', text, re.I):
+        return 'review', 'experience requirement needs contextual verification'
     if re.search(r'\b(?:nationality|citizen|indefinite leave|permanent right|unrestricted right)\b', text, re.I):
         return 'review', 'right-to-work or nationality restriction needs verification'
     if re.search(r'\b(?:[2-9]|1[0-9])\+?\s*(?:-|to)?\s*\d*\s*years?\b', text, re.I):

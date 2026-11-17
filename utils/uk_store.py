@@ -47,6 +47,7 @@ class Store:
         for number, row in enumerate(self.tracking.get_all_values()[1:], start=2):
             if len(row) >= 3:
                 self.previous[row[0]] = (number, json.loads(row[2]))
+        print(f'Sheets: loaded {len(self.previous)} persistent tracking records')
 
     def save(self, job):
         print('Sheets: persisting private tracking record')
@@ -81,6 +82,10 @@ class Store:
             import re
             number = int(re.search(r'![A-Z]+(\d+)', result['updates']['updatedRange']).group(1))
             self.previous[identifier] = (number, job)
+        stored_row = self.tracking.row_values(self.previous[identifier][0])
+        if stored_row != row:
+            raise RuntimeError('Private tracking readback failed')
+        print('Sheets: private tracking write read back successfully')
         return inserted
 
     def log(self, summary):
